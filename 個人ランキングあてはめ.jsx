@@ -13,7 +13,7 @@
 //                            |- 出力AI\
 //                            |- 出力PDF\
 //                            |- 出力PNG\
-var pwdPath = "C:\\Users\\washi\\Desktop\\個人ランキング\\作業用ディレクトリ\\";
+var pwdPath = "C:\\Users\\Sato\\Desktop\\ランキング作業\\";
 
 //各Pathを用意
 var inputTemplatePath = pwdPath + "テンプレート.ai";
@@ -37,16 +37,16 @@ var replaceDictionary = {
   0: "メインコメント置換",
   1: "糞コメント置換",
   2: "判決置換",
-  3: "性別",
-  4: "生年月日",
+  3: "性別置換",
+  4: "生年月日置換",
   5: "ジャンル置換",
-  6: "回生",
-  7: "入トロ歴",
+  6: "回生置換",
+  7: "入トロ歴置換",
   8: "雑誌置換",
   9: "漫画家置換",
   10: "好きな漫画置換",
   11: "他の所属",
-  12: "自己紹介"
+  12: "自己紹介置換"
 };
 
 //********
@@ -64,7 +64,7 @@ var commentFileList = (new Folder(inputCommentDirectory)).getFiles("*.txt");
 
 //以下、総評のエントリ順に処理していく
 for (var i = 0; i < commentFileList.length; i++){
-  var handleName = commentFileList[i].name.split(".")[0];
+  var handleName = decodeURI(commentFileList[i].name.split(".")[0]);
   var entry = getUserEntry(rankings, handleName);
 
   //テンプレートファイルを開く
