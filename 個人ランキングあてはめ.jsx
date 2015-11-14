@@ -154,6 +154,7 @@ function getUserEntry(rankings, handleName){
       return rankings[i];
     }
   }
+  return null;
 }
 
 function chikan(docObj, moto, saki){
@@ -171,5 +172,4 @@ function getRank(ranks_, rank){
       return ranks_[i];
     }
   }
-  return null;
 }
